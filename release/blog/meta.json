@@ -1,0 +1,17 @@
+{
+  "title": "HMS Your Town: which British towns have had a warship named after them?",
+  "slug": "ships-named",
+  "excerpt": "I matched every Royal Navy ship in Wikidata to the British towns they are named after: 394 ships for 135 towns. Gloucester and Newcastle have had nine each; Lancaster four; Barrow none.",
+  "seo_description": "135 British towns and cities that gave their name to 394 Royal Navy warships, from 1650 to today, mapped from Wikidata.",
+  "tags": [
+    "maps",
+    "history",
+    "Royal Navy",
+    "ships",
+    "place names",
+    "Wikidata",
+    "data visualisation",
+    "naval history"
+  ],
+  "header_alt": "Title card reading 'HMS Your Town' on parchment beside a map of Great Britain and Northern Ireland with circles on the towns that gave their name to Royal Navy ships, sized by the number of ships."
+}
