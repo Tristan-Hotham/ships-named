@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HMS Your Town</title>
+<meta name="description" content="Which British towns have had a Royal Navy warship named after them, how many times, and what became of the ships: {{source.matched|int}} ships and {{source.towns|int}} towns from Wikidata, mapped.">
+<meta property="og:title" content="HMS Your Town">
+<meta property="og:description" content="{{source.towns|int}} British towns and cities that gave their name to {{source.matched|int}} Royal Navy ships, from 1650 to today.">
+<meta property="og:image" content="https://maps.tristanhotham.com/ships-named/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/ships-named/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=MedievalSharp&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+:root{
+  --bg:#F6EED8; --panel:#EFE3C4; --fg:#2B2119; --muted:#6E604E; --rule:#E2D3AE; --card:#FBF5E4; --border:#D3C29A;
+  --hot:#A3261B; --cool:#3D6E9E;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --hand:"MedievalSharp","Fraunces",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1A1612; --panel:#241E18; --fg:#EFE6D4; --muted:#ADA08B; --rule:#3A3128; --card:#211B15; --border:#4D4234; --hot:#E07A6C; --cool:#8FB4DA; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1612; --panel:#241E18; --fg:#EFE6D4; --muted:#ADA08B; --rule:#3A3128; --card:#211B15; --border:#4D4234; --hot:#E07A6C; --cool:#8FB4DA; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 64px}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:#A3261B;color:#fff;padding:5px 8px;font-weight:500}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+p{margin:0 0 16px}
+.lede::first-letter{font:400 76px/.8 var(--hand);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+ul.plain{padding-left:20px} ul.plain li{margin:4px 0}
+details{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;margin:18px 0;font-size:16px}
+summary{font:500 13px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:#A3261B;border-color:#A3261B;color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:4px 8px;cursor:pointer;min-height:28px}
+.figure{margin:22px 0}
+.figure img{width:100%;display:block;border:1px solid var(--border)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}
+.stat{border:1px solid var(--border);background:var(--card);padding:10px 12px}
+.stat b{display:block;font:800 30px/1 var(--display);color:var(--hot)}
+.stat span{font:400 12.5px/1.35 var(--mono);color:var(--muted)}
+table.words{border-collapse:collapse;width:100%;font:400 13px/1.35 var(--mono);margin:12px 0}
+table.words th,table.words td{border-bottom:1px solid var(--rule);padding:5px 6px;text-align:left;vertical-align:top}
+table.words th{font-weight:500;color:var(--muted)}
+.tw{overflow-x:auto}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;border:1.2px solid #2B2119;vertical-align:-1px;margin-right:5px}
+
+/* ---- the map ---- */
+.topbar{height:40px;display:flex;align-items:center;gap:14px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:0 max(14px,env(safe-area-inset-left,0px));border-bottom:3px double var(--fg);background:var(--bg);overflow:hidden;white-space:nowrap}
+.tb-name{font:400 19px/1 var(--hand);color:var(--hot);text-decoration:none;letter-spacing:.03em}
+.tb-k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tb-links{margin-left:auto;display:flex;gap:16px;align-items:center;font:500 12px/1 var(--mono)}
+.tb-links a{text-decoration:none}.tb-links a:hover{text-decoration:underline}
+.mapband{width:100vw;margin-left:calc(50% - 50vw)}
+#map{position:relative;height:calc(100vh - 43px);height:calc(100svh - 43px);min-height:460px;border-bottom:1px solid #BCA676;background:#F3E5BF;overflow:hidden}
+#map::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 90px rgba(120,84,30,.22), inset 0 0 18px rgba(120,84,30,.18)}
+.cartouche{position:absolute;left:14px;top:14px;z-index:5;max-width:min(330px,calc(100% - 28px));background:rgba(251,243,220,.95);color:#2B2119;border:2px solid #2B2119;outline:1px solid #2B2119;outline-offset:-6px;padding:10px 14px;box-shadow:0 3px 14px rgba(60,40,10,.22)}
+.cartouche::before,.cartouche::after{content:"";position:absolute;width:9px;height:9px;background:#A3261B;border:1px solid #2B2119;border-radius:50%}
+.cartouche::before{left:-6px;top:-6px}.cartouche::after{right:-6px;bottom:-6px}
+.cartouche h1{font:900 clamp(21px,2.2vw,28px)/1.02 var(--display);letter-spacing:-.015em;margin:6px 0 0;color:#2B2119}
+.cartouche h1 .a{color:#A3261B;font-family:var(--hand);font-weight:400;letter-spacing:.03em}
+.cartouche .dek{font-size:13.5px;line-height:1.36;margin:6px 0 0;color:#2B2119}
+.cartouche .byline{font:400 11px/1.35 var(--mono);color:#6E604E;margin-top:6px}
+.cartouche .kicker{color:#6E604E}
+.ct-fold{position:absolute;right:6px;top:5px;width:26px;height:26px;border:0;background:none;color:#A3261B;font:400 18px/1 var(--hand);cursor:pointer;padding:0}
+.ct-toggle{display:none;font:400 17px/1 var(--hand);color:#A3261B;background:none;border:0;padding:2px 0;cursor:pointer;min-height:30px}
+.cartouche.folded .ct-body,.cartouche.folded .ct-fold{display:none}.cartouche.folded .ct-toggle{display:block}.cartouche.folded{padding:4px 11px}
+.ov{position:absolute;z-index:5;font:400 13px/1.3 var(--mono);color:#2B2119}
+.ov-top{right:54px;top:10px;max-width:calc(100% - 420px);display:flex;flex-direction:column;gap:6px;align-items:flex-end;pointer-events:none}
+.ov-top>*{pointer-events:auto}
+.srch{position:relative;width:min(340px,100%)}
+.srch input{width:100%;font:400 15px/1 var(--mono);background:rgba(251,245,228,.96);color:#2B2119;border:1px solid #9C8656;border-radius:3px;padding:9px 10px;min-height:40px;box-shadow:0 1px 4px rgba(60,40,10,.18)}
+.srch input:focus-visible,.chip:focus-visible,.lp label:focus-within,.lp select:focus-visible{outline:2px solid #A3261B;outline-offset:2px}
+.sug{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:#FBF5E4;border:1px solid #9C8656;max-height:300px;overflow:auto;display:none;box-shadow:0 3px 10px rgba(60,40,10,.2);z-index:12}
+.sug li{padding:8px 10px;cursor:pointer;border-bottom:1px solid #E7D9B6}
+.sug li span{color:#7A6A52;font-size:12px}
+.sug li[aria-selected="true"],.sug li:hover{background:#EFE1BC}
+.chips{display:flex;gap:6px;overflow-x:auto;max-width:100%;scrollbar-width:none;padding-bottom:2px;justify-content:flex-end;flex-wrap:wrap}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:500 12px/1 var(--mono);background:rgba(251,245,228,.94);color:#2B2119;border:1px solid #9C8656;border-radius:999px;padding:7px 10px;cursor:pointer;min-height:32px;white-space:nowrap;box-shadow:0 1px 3px rgba(60,40,10,.14);display:inline-flex;align-items:center;gap:6px}
+.chip:hover{background:#EFE1BC}
+.chip.lyr{background:#2B2119;color:#F6EED8;border-color:#2B2119}
+.chip.off{opacity:.42;text-decoration:line-through}
+.chip i{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.3px solid #2B2119}
+.lp{position:absolute;right:54px;top:118px;z-index:9;background:rgba(251,245,228,.98);border:1px solid #9C8656;border-radius:4px;padding:10px 12px 8px;font:400 13px/1.3 var(--mono);color:#2B2119;box-shadow:0 3px 12px rgba(60,40,10,.25);display:none;width:270px;max-height:calc(100% - 132px);overflow:auto}
+.lp.open{display:block}
+.lp h4{margin:0 0 6px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7A6A52}
+.lp h5{margin:9px 0 1px;padding-top:7px;border-top:1px solid #E2D3AE;font:600 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#A3261B}
+.lp label{display:flex;gap:8px;align-items:center;padding:4px 0;cursor:pointer;min-height:30px}
+.lp input{accent-color:#A3261B;width:16px;height:16px;flex:none}
+.lp select{width:100%;font:400 13px/1 var(--mono);padding:6px;border:1px solid #9C8656;border-radius:3px;background:#fff;color:#2B2119;min-height:34px;margin:3px 0 6px}
+.lp .note{font-size:11.5px;color:#6E604E;margin:2px 0 4px}
+.lgd{position:absolute;left:12px;bottom:42px;z-index:4;background:rgba(251,245,228,.94);border:1px solid #9C8656;border-radius:3px;padding:7px 9px;font:400 11.5px/1.3 var(--mono);color:#2B2119;max-width:250px;display:none}
+.lgd.on{display:block}
+.lgd .bar{display:flex;height:10px;margin:4px 0 2px;border:1px solid #2B2119}
+.lgd .bar span{flex:1}
+.lgd .ends{display:flex;justify-content:space-between;color:#6E604E}
+.ov-br{position:absolute;left:12px;bottom:12px;z-index:4;font:400 11px/1.2 var(--mono);color:#6E604E;background:rgba(251,245,228,.85);padding:5px 7px;border-radius:3px;border:1px solid #D3C29A}
+.maplibregl-popup-content{background:#FBF5E4;color:#2B2119;font:400 13px/1.45 var(--mono);border:1px solid #9C8656;border-radius:4px;padding:10px 12px;box-shadow:0 3px 12px rgba(60,40,10,.25);max-width:290px}
+.maplibregl-popup-content b.t{display:block;font:400 19px/1.15 var(--hand);color:#A3261B;margin-bottom:3px}
+.maplibregl-popup-content .m{color:#6E604E}
+.maplibregl-popup-content a{color:#A3261B}
+.maplibregl-popup-content .cb{display:flex;height:9px;margin:6px 0 3px;border:1px solid #2B2119}
+.maplibregl-popup-tip{border-top-color:#9C8656!important;border-bottom-color:#9C8656!important}
+.maplibregl-ctrl-attrib{font:400 11px/1.3 var(--mono)!important;background:rgba(251,245,228,.85)!important}
+.maplibregl-ctrl-group{background:#FBF5E4!important;border:1px solid #9C8656}
+.nojs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 14px var(--mono);color:#6E604E;padding:20px;text-align:center}
+@media (max-width:1000px){.ov-top{left:10px;right:54px;max-width:none;align-items:flex-start}.chips{justify-content:flex-start}.lp{left:10px;right:auto}.cartouche{top:auto;bottom:44px}}
+@media (max-width:600px){
+  #map{height:calc(100svh - 43px - 64px);min-height:440px}
+  .tb-k,.tb-links a:not(:first-of-type){display:none}
+  .ov-top{left:8px;top:8px}
+  .chips{flex-wrap:nowrap;overflow-x:auto}
+  .lp{top:96px;left:8px;right:8px;width:auto}
+  .cartouche{left:8px;bottom:36px;max-width:calc(100% - 60px);padding:8px 11px}
+  .cartouche h1{font-size:21px}.cartouche .dek{display:none}
+  .ct-toggle{display:block}.ct-fold{display:none}
+  .lgd{bottom:auto;top:96px;max-width:calc(100% - 70px)}
+  .ov-br{display:none}
+  h2{font-size:28px}
+}
+
+.tl{position:absolute;left:50%;transform:translateX(-50%);bottom:14px;z-index:6;width:min(560px,calc(100% - 28px));background:rgba(251,245,228,.96);border:1px solid #9C8656;border-radius:4px;padding:8px 12px 6px;box-shadow:0 2px 10px rgba(60,40,10,.2);font:400 12.5px/1.3 var(--mono);color:#2B2119}
+.tl-row{display:flex;align-items:center;gap:10px}
+.tl button.play{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #2B2119;background:#A3261B;color:#fff;font:500 15px/1 var(--mono);cursor:pointer}
+.tl input[type=range]{flex:1;accent-color:#A3261B;min-height:30px}
+.tl .day{font:400 18px/1.1 var(--hand);color:#A3261B}
+.tl .cnt{color:#6E604E}
+.evs{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.chip.on{background:#2B2119;color:#F6EED8;border-color:#2B2119}
+.lgd2{position:absolute;left:12px;bottom:40px;z-index:4;background:rgba(251,245,228,.94);border:1px solid #9C8656;border-radius:3px;padding:7px 9px;font:400 11.5px/1.45 var(--mono);color:#2B2119;max-width:230px}
+.lgd2 i{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #2B2119;vertical-align:-1px;margin-right:6px}
+.maplibregl-popup-content q{display:block;font:italic 400 13px/1.4 var(--body);margin:6px 0;color:#3B2F25}
+@media (max-width:1000px){.lgd2{bottom:auto;top:140px}}
+@media (max-width:600px){.lgd2{display:none}.tl{bottom:8px;padding:6px 9px}.evs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto}.tl .cnt{font-size:11px}}
+</style>
+<style>@media (max-width:600px){.shiplist{max-height:130px!important}}.shiplist{max-height:190px;overflow:auto;margin:6px 0 4px;padding:0;list-style:none;border-top:1px solid #E2D3AE}.shiplist li{padding:3px 0;border-bottom:1px solid #EFE3C4}.shiplist i{display:inline-block;width:9px;height:9px;border-radius:50%;border:1px solid #2B2119;margin-right:5px;vertical-align:0}</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="tb-name" href="#map">HMS Your Town</a>
+  <span class="tb-k">Data study · 2026</span>
+  <nav class="tb-links"><a href="#essay">About</a><button class="theme" id="theme" aria-label="Toggle dark mode">◐</button><a href="https://doi.org/10.5281/zenodo.24052719">Paper</a><a href="{{REPO}}">Data and code</a></nav>
+</div>
+
+<div class="mapband">
+  <div id="map" data-fullscreen-map role="application" aria-label="Map of British towns sized by the number of Royal Navy ships named after them">
+    <div class="nojs" id="nojs">Loading the map. It needs JavaScript and WebGL.</div>
+    <div class="cartouche" id="cartouche">
+      <button class="ct-toggle" id="ctToggle" aria-expanded="true" title="Show the title">HMS Your Town ▾</button>
+      <button class="ct-fold" id="ctFold" title="Fold the title" aria-label="Fold the title">▴</button>
+      <div class="ct-body">
+        <div class="kicker"><b>Data study</b><span>2026</span></div>
+        <h1>HMS <span class="a">Your Town</span></h1>
+        <p class="dek">{{source.towns|int}} British towns and cities that gave their name to {{source.matched|int}} Royal Navy ships. The bigger the circle, the more ships. Tap a town for its ships, their dates and what is known of their fate.</p>
+        <div class="byline">Dr Tristan Hotham · Independent researcher · 2026</div>
+      </div>
+    </div>
+    <div class="ov ov-top">
+      <div class="srch"><input type="search" id="q" placeholder="Find a town or a ship" aria-label="Find a town or a ship" autocomplete="off"><ul class="sug" id="sug" role="listbox"></ul></div>
+      <div class="chips"><button class="chip lyr" id="lyrBtn" aria-expanded="false" aria-controls="lp">Layers</button></div>
+    </div>
+    <div class="lp" id="lp" role="dialog" aria-label="Map layers">
+      <h4>Ships</h4>
+      <label><input type="checkbox" id="townBox" checked> British towns with a ship</label>
+      <label><input type="radio" name="col" value="era" checked> Colour by the era of the latest ship</label>
+      <label><input type="radio" name="col" value="fate"> Colour by recorded fates</label>
+      <label><input type="checkbox" id="titleBox"> Only towns whose name is not also a noble title</label>
+      <label><input type="checkbox" id="intlBox"> Other navies: towns that ships are named after</label>
+      <label><input type="checkbox" id="labBox" checked> Town names</label>
+      <h5>The inked map</h5>
+      <label><input type="checkbox" data-g="mountains" checked> Ink mountains and hills</label>
+      <label><input type="checkbox" data-g="forests" checked> Forests, marsh and moor</label>
+      <label><input type="checkbox" data-g="rivers" checked> Rivers and lakes</label>
+      <label><input type="checkbox" data-g="sea" checked> Sea shading and ripples</label>
+      <label><input type="checkbox" data-g="names" checked> Place names</label>
+      <label><input type="checkbox" data-g="borders" checked> Borders</label>
+      <label><input type="checkbox" data-g="roads"> Roads and tracks</label>
+      <label><input type="checkbox" data-g="tint" checked> Watercolour tints</label>
+      <label><input type="checkbox" data-g="hillshade"> Hill shading</label>
+      <label><input type="checkbox" id="modern"> Plain modern map, for finding your way</label>
+    </div>
+    <div class="lgd2" id="lgd"></div>
+  </div>
+</div>
+
+<div class="wrap" id="essay">
+<p class="lede" style="margin-top:26px">Somewhere in most British port towns there is a ship's bell, a crest or a plaque from HMS Something, the warship that carried the town's name. Some towns have had one; Gloucester and Newcastle have had nine each. I went through every Royal Navy ship in Wikidata, {{source.rn_ships|int}} of them, matched their names to British towns and cities, and mapped the result: {{source.matched|int}} ships named after {{source.towns|int}} places.</p>
+<p>The map shows each town as a circle sized by its ships and coloured by when the latest of them served. Tap one to see the list. The essay below explains how the names were matched, why it is harder than it looks, and why the question of what happened to the ships mostly has no answer in the open data.</p>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Wikidata (CC0); map: OpenStreetMap via OpenFreeMap, Natural Earth</div>
+
+<div class="stats">
+  <div class="stat"><b>{{top.0.ships|int}}</b><span>ships each for Gloucester and Newcastle, the most-named towns</span></div>
+  <div class="stat"><b>{{peak.pct|int}}%</b><span>of ships commissioned {{peak.start|raw}} to 1699 bore a town's name</span></div>
+  <div class="stat"><b>{{castle_class|int}}</b><span>Castle-class corvettes of 1944 named after a town's castle</span></div>
+  <div class="stat"><b>{{source.fate_known_pct|int}}%</b><span>of the ships have any recorded fate in Wikidata</span></div>
+</div>
+
+<h2><span class="n">01 · Where</span>Ports, cathedral cities and the Navy's own towns</h2>
+<p>The {{source.towns|int}} towns are spread across all four nations, but heavily English: {{nations.England.towns|int}} towns in England, {{nations.Scotland.towns|int}} in Scotland, {{nations.Wales.towns|int}} in Wales and {{nations.Northern_Ireland.towns|int}} in Northern Ireland. More than half ({{coast.within10_pct|int}}%) lie within 10 km of the open sea. The most-named are old ports and cathedral cities, and the dockyard towns the Navy lived in: Chatham, Falmouth, Pembroke and Scarborough have seven or eight ships each. {{five_plus|int}} towns have had five ships or more; {{one_ship_towns|int}} have had just one.</p>
+<div class="figure"><img src="img/top.png" alt="Bar chart of the twenty most-named towns, each bar made of blocks for its ships coloured by era" loading="lazy"><p class="src">The twenty towns with most ships. Each block is one ship, coloured by when it was commissioned.</p></div>
+
+<h2><span class="n">02 · When</span>A fashion that came and went</h2>
+<p>Naming ships after towns is old. In the second half of the 1600s about a third of the Royal Navy ships in Wikidata ({{peak.town|int}} of {{peak.ships|int}}) carried a British town's name: London, Newcastle, Gloucester, York. Many of those names were also the titles of royal dukes and earls, so some of the older ships may honour the duke rather than the town. From the middle of the 1700s town names became rare, lost among a fleet of classical heroes, virtues, animals and battles. They came back in the 20th century with the Town-class cruisers, the wartime Castle-class corvettes, the frigates of the 1950s and 1960s, and the Type 42 destroyers named after cities ({{type42|int}} of them here). The Type 23 frigates of the 1990s (Lancaster, Richmond, St Albans) are named after dukedoms, and are flagged as titles.</p>
+<div class="figure"><img src="img/eras.png" alt="Bar chart of the share of Royal Navy ships bearing a town's name by half century, high before 1750, low in the 1800s, rising after 1950" loading="lazy"><p class="src">Share of Royal Navy ships in Wikidata with a British town's name, by the half century of commissioning (or the class's typical date).</p></div>
+
+<h2><span class="n">03 · Two towns</span>Lancaster and Barrow</h2>
+<p>Lancaster has had {{lancaster.ships|int}} ships in the data: an HMS Lancaster of {{lancaster.years.0|raw}}, another of {{lancaster.years.1|raw}}, HMS Lancaster Castle, a Castle-class corvette of {{lancaster.years.2|raw}}, and the Type 23 frigate of {{lancaster.years.3|raw}}, named, like its class, after a dukedom (the Duke of Lancaster is the monarch). The Town-class destroyer HMS Lancaster of 1940 is in Wikidata only under its American name, and the Monmouth-class armoured cruiser of 1902 is left out because that class was named after counties. Barrow-in-Furness, which built a good share of the Navy's ships and most of its submarines, has never had a ship of its own name in the data.</p>
+
+<h2><span class="n">04 · Fates</span>What happened to them? Mostly, nobody wrote it down</h2>
+<p>The open data is thin here. Only {{source.fate_known|int}} of the {{source.matched|int}} ships ({{source.fate_known_pct|int}}%) have any recorded end in Wikidata, and most of those are just a decommissioning date. {{fates.lost|int}} are recorded as sunk, wrecked or destroyed, among them HMS Gloucester, sunk off Crete in 1941, and HMS Sheffield and HMS Coventry, lost in the Falklands in 1982. The map can colour towns by these records, but read the colours as gaps in the data as much as facts about the ships.</p>
+<div class="figure"><img src="img/fates.png" alt="A single stacked bar showing that most town-named ships have no recorded fate" loading="lazy"><p class="src">Recorded fates of the town-named ships in Wikidata.</p></div>
+
+<h2><span class="n">05 · Elsewhere</span>Other navies do it too</h2>
+<p>Wikidata records what a ship is named after for only a fraction of ships, but where it does, the habit is plain in other navies. The United States Navy has the most: {{intl.usn_us_towns|int}} ships named after American towns and cities in the data, from Raleigh to Newport News. The Royal Australian Navy names ships after its cities; the Imperial Japanese Navy, by contrast, named ships after mountains, rivers and provinces, almost never towns.</p>
+<div class="figure"><img src="img/intl.png" alt="Bar chart of ships named after towns and other places by navy" loading="lazy"><p class="src">Ships whose Wikidata entry names a town or city they honour (blue) among all ships named after a place, by navy.</p></div>
+
+<h2><span class="n">06 · Method</span>How I did this</h2>
+<p>I took every ship in Wikidata operated by the Royal Navy with a name beginning HMS. Where Wikidata says what a ship was named after (only {{source.rn_with_p138|int}} ships), I used that, keeping only British towns and cities. For the rest I matched the name exactly to a British town or city in Wikidata (a town, market town, city or seaside resort, or any place of 10,000 people or more), and "Lancaster Castle" style names to their town. I left out ships whose recorded namesake is a person or a foreign place, classes named after other things (fox hunts, racecourses, rivers, flowers), and names that belong to people, battles, rivers or foreign places (Nelson, Wellington, Dunkirk, Gibraltar). Classes named after counties (the County-class cruisers and destroyers) are left out too. {{source.title_ships|int}} of the matches ({{source.title_pct|int}}%) share their name with a noble title; they are counted but flagged on the map, and without them {{notitle.ships|int}} ships and {{notitle.towns|int}} towns remain. Years are the commissioning year, or for {{source.year_class|int}} ships the typical year of the ship's class.</p>
+<details><summary>Caveats</summary>
+<ul class="plain">
+<li>Wikidata's list of Royal Navy ships is long but not complete, and a ship may appear twice. Only {{source.p138_pct|int}}% of the ships record what they were named after, and the matches are {{source.matched_pct|int}}% of all the HMS ships in the data. {{town_destroyers.us_label|int}} of the {{town_destroyers.in_data|int}} Town-class destroyers of 1940 appear only under their former American names, so they are missed.</li>
+<li>A matching name is not proof: some early ships honour a duke or earl whose title is a town, and some names may honour a different place of the same name (Newport, Richmond).</li>
+<li>Fates are recorded for only {{source.fate_known_pct|int}}% of the ships; "fate not recorded" is not the same as "survived".</li>
+<li>The international view uses only ships whose Wikidata entry names the place they honour, a small share of each navy.</li>
+</ul></details>
+
+<details><summary>Sources and licences</summary>
+<ul class="plain">
+<li>Wikidata (CC0): Royal Navy and other ships, their classes, dates, events and namesakes; UK towns and cities with population and type.</li>
+<li>Map: OpenStreetMap contributors (ODbL), vector tiles by OpenFreeMap; the Inked World map style from the ink-map study; elevation from AWS Terrain Tiles. Static figures use Natural Earth (public domain). MapLibre GL JS 4.7.1 (BSD 3-Clause).</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.24052719">Read the paper</a><a href="{{REPO}}">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/ships-named/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) HMS Your Town: British towns and the Royal Navy ships named after them. Zenodo. <a href="https://doi.org/10.5281/zenodo.24052719">10.5281/zenodo.24052719</a></p>
+<p>Code: <a href="{{REPO}}">github.com/Tristan-Hotham/ships-named</a> (MIT). Text, figures and derived data CC BY 4.0; ship and town data from Wikidata (CC0); map data © OpenStreetMap contributors (ODbL).</p>
+<p>{{AI}}</p>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="js/curated.js?v=1"></script>
+<script src="js/ink-palette.js?v=1"></script>
+<script src="js/ink-icons.js?v=1"></script>
+<script src="js/ink-houses.js?v=1"></script>
+<script src="js/ink-map.js?v=1"></script>
+<script src="js/ink-extras.js?v=1"></script>
+<script>
+(function () {
+  const phone = matchMedia('(max-width:600px)').matches;
+  const opts = { workerConfig: { heritage: '', hills: '', places: '' } };
+  opts.mapOptions = { center: [-3.2, 54.6], zoom: phone ? 4.3 : 5.2 };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ERA = [['before 1800', '#6E604E'], ['1800s', '#D9A21E'], ['1900 to 1945', '#A3261B'], ['since 1946', '#3D6E9E']];
+  let D = null, map = null, colMode = 'era';
+  const ct = $('cartouche');
+  const fold = f => { ct.classList.toggle('folded', f); $('ctToggle').setAttribute('aria-expanded', String(!f)); };
+  if (phone) fold(true);
+  $('ctToggle').addEventListener('click', () => fold(!ct.classList.contains('folded')));
+  $('ctFold').addEventListener('click', () => fold(true));
+  document.addEventListener('fullscreenchange', () => { if (document.fullscreenElement) fold(true); });
+  const dataP = fetch('data/points.json').then(r => r.json());
+  InkMap.create('map', opts).then(m => {
+    map = window.__map = m; window.__popup = i => popup(i);
+    $('nojs').remove();
+    const foldAttr = () => { const at = document.querySelector('.maplibregl-ctrl-attrib.maplibregl-compact'); if (at) { at.classList.remove('maplibregl-compact-show'); at.removeAttribute('open'); } };
+    map.once('idle', foldAttr); foldAttr();
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
+    if (InkMap.setWinter) InkMap.setWinter(map, false);
+    ['heritage', 'flight', 'animals', 'farms', 'towns', 'roads'].forEach(g => InkMap.setGroup(map, g, false));
+    const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; };
+    const tone = () => InkMap.setSeaTone && InkMap.setSeaTone(map, isDark());
+    tone(); new MutationObserver(tone).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    dataP.then(d => { D = d; addLayers(); buildUI(); }).catch(e => console.error('points', e));
+    setupLayers();
+  }).catch(e => { console.error(e); const n = $('nojs'); if (n) n.textContent = 'The map could not load: ' + e.message; });
+
+  function fateOf(i) { const s = D.ships.filter(x => x[9] === i); if (s.some(x => x[4] === 'lost')) return 'lost'; if (s.some(x => x[4] !== 'unknown')) return 'known'; return 'none'; }
+  function addLayers() {
+    const feats = D.places.map((r, i) => ({ type: 'Feature', id: i, geometry: { type: 'Point', coordinates: [r[0], r[1]] }, properties: { n: r[2].replace(' upon Tyne', ''), s: r[3], era: r[9], t: r[7], f: fateOf(i) } }));
+    map.addSource('nv-towns', { type: 'geojson', data: { type: 'FeatureCollection', features: feats }, attribution: 'Ships and towns: <a href="https://www.wikidata.org/" target="_blank">Wikidata</a> (CC0)' });
+    map.addLayer({ id: 'nv-towns', type: 'circle', source: 'nv-towns', paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, ['+', 3, ['*', 1.6, ['sqrt', ['get', 's']]]], 8, ['+', 6, ['*', 4.5, ['sqrt', ['get', 's']]]]],
+      'circle-color': eraCol(), 'circle-stroke-color': '#2B2119', 'circle-stroke-width': 1, 'circle-opacity': 0.9 } });
+    map.addLayer({ id: 'nv-lab', type: 'symbol', source: 'nv-towns', layout: { 'text-field': ['concat', ['get', 'n'], ' ', ['to-string', ['get', 's']]], 'text-font': ['Ink Italic'],
+      'text-size': ['interpolate', ['linear'], ['zoom'], 4, ['+', 9, ['get', 's']], 9, 16], 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 1.1, 'symbol-sort-key': ['-', 0, ['get', 's']] },
+      paint: { 'text-color': '#2B2119', 'text-halo-color': 'rgba(246,238,216,0.92)', 'text-halo-width': 1.5 } });
+    const intl = D.intl.map((r, i) => ({ type: 'Feature', id: i, geometry: { type: 'Point', coordinates: [r[0], r[1]] }, properties: { n: r[2], c: r[3], s: r[4], v: r[5] } }));
+    map.addSource('nv-intl', { type: 'geojson', data: { type: 'FeatureCollection', features: intl } });
+    map.addLayer({ id: 'nv-intl', type: 'circle', source: 'nv-intl', layout: { visibility: 'none' }, paint: { 'circle-radius': ['+', 3, ['*', 2, ['get', 's']]], 'circle-color': '#3F8C84', 'circle-stroke-color': '#2B2119', 'circle-stroke-width': 0.8, 'circle-opacity': 0.85 } });
+    map.on('click', 'nv-towns', e => popup(e.features[0].id));
+    map.on('click', 'nv-intl', e => { const p = e.features[0].properties; new maplibregl.Popup({ maxWidth: '290px' }).setLngLat(e.lngLat).setHTML('<b class="t">' + esc(p.n) + '</b><div class="m">' + esc(p.c) + '</div><div>' + p.s + ' ship' + (p.s > 1 ? 's' : '') + ' named after it: ' + esc(p.v) + '</div><div class="m">From Wikidata "named after".</div>').addTo(map); });
+    ['nv-towns', 'nv-intl'].forEach(l => { map.on('mouseenter', l, () => map.getCanvas().style.cursor = 'pointer'); map.on('mouseleave', l, () => map.getCanvas().style.cursor = ''); });
+    legend();
+  }
+  function eraCol() { const e = ['match', ['get', 'era']]; ERA.forEach(([k, c]) => e.push(k, c)); e.push('#FFFDF6'); return e; }
+  function fateCol() { return ['match', ['get', 'f'], 'lost', '#A3261B', 'known', '#9DB0A0', '#FFFDF6']; }
+  function legend() {
+    const l = $('lgd');
+    if (colMode === 'era') l.innerHTML = '<b>Latest ship named after the town</b><br>' + ERA.map(([k, c]) => '<i style="background:' + c + '"></i>' + k).join('<br>') + '<br><i style="background:#FFFDF6"></i>year not known<br><span style="color:#6E604E">Circle size: number of ships</span>';
+    else l.innerHTML = '<b>Recorded fates</b><br><i style="background:#A3261B"></i>at least one ship lost<br><i style="background:#9DB0A0"></i>some fates recorded, none lost<br><i style="background:#FFFDF6"></i>no fate recorded for any ship<br><span style="color:#6E604E">Wikidata records few fates</span>';
+  }
+  const FN = {}; 
+  function popup(i) {
+    const r = D.places[i]; D.fates.forEach(f => FN[f[0]] = f);
+    const ships = D.ships.filter(s => s[9] === i);
+    let h = '<b class="t">' + esc(r[2]) + '</b><div class="m">' + esc(r[6]) + ' · ' + r[3] + ' ship' + (r[3] > 1 ? 's' : '') + (r[4] ? ', ' + r[4] + (r[5] !== r[4] ? ' to ' + r[5] : '') : '') + '</div>';
+    if (r[7]) h += '<div class="m">The name is also a noble title; some of these ships honour the duke or earl rather than the town.</div>';
+    if (r[8]) h += '<div class="m">Another British town shares this name.</div>';
+    h += '<ul class="shiplist">' + ships.map(s => '<li><i style="background:' + FN[s[4]][2] + '"></i><a href="https://www.wikidata.org/wiki/' + s[7] + '" target="_blank" rel="noopener">' + esc(s[0]) + '</a> ' + (s[1] ? s[1] + (s[2] === 'class' ? ' (class date)' : '') : 'year unknown') + (s[3] ? '<br><span class="m">' + esc(s[3]) + '</span>' : '') + '<br><span class="m">' + esc(FN[s[4]][1]) + (s[6] === 'wikidata' ? ' · namesake recorded in Wikidata' : s[6] === 'castle' ? ' · named after its castle' : ' · matched by name') + '</span></li>').join('') + '</ul>';
+    h += '<div><a href="https://www.wikidata.org/wiki/' + r[10] + '" target="_blank" rel="noopener">The town on Wikidata</a></div>';
+    // phone: put the town just below the search bar and Layers button and open the popup downwards, clear of the controls
+    if (phone) map.jumpTo({ center: [r[0], r[1]], offset: [0, 150 - map.getContainer().clientHeight / 2] });
+    new maplibregl.Popup(phone ? { maxWidth: '340px', anchor: 'top' } : { maxWidth: '310px' }).setLngLat([r[0], r[1]]).setHTML(h).addTo(map);
+  }
+  function applyFilter() {
+    const f = $('titleBox').checked ? ['==', ['get', 't'], 0] : null;
+    map.setFilter('nv-towns', f); map.setFilter('nv-lab', f);
+  }
+  function buildUI() {
+    $('townBox').addEventListener('change', e => ['nv-towns', 'nv-lab'].forEach(l => map.setLayoutProperty(l, 'visibility', e.target.checked ? 'visible' : 'none')));
+    $('labBox').addEventListener('change', e => map.setLayoutProperty('nv-lab', 'visibility', e.target.checked ? 'visible' : 'none'));
+    $('intlBox').addEventListener('change', e => { map.setLayoutProperty('nv-intl', 'visibility', e.target.checked ? 'visible' : 'none'); if (e.target.checked) map.flyTo({ center: [10, 30], zoom: phone ? 0.8 : 1.6 }); });
+    $('titleBox').addEventListener('change', applyFilter);
+    document.querySelectorAll('input[name=col]').forEach(r => r.addEventListener('change', () => { colMode = document.querySelector('input[name=col]:checked').value; map.setPaintProperty('nv-towns', 'circle-color', colMode === 'era' ? eraCol() : fateCol()); legend(); }));
+    setupSearch();
+  }
+  function setupLayers() {
+    const lp = $('lp'), btn = $('lyrBtn');
+    btn.addEventListener('click', e => { e.stopPropagation(); const o = lp.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', e => { if (!lp.contains(e.target) && e.target !== btn) { lp.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+    const boxes = [...lp.querySelectorAll('input[data-g]')], modern = $('modern');
+    const NAME_LAYERS = map.getStyle().layers.filter(l => l.type === 'symbol' && l.metadata && ['names', 'rivers'].includes(l.metadata.group)).map(l => l.id);
+    const saved = {}; NAME_LAYERS.forEach(id => saved[id] = { c: map.getPaintProperty(id, 'text-color'), h: map.getPaintProperty(id, 'text-halo-color') });
+    function apply() {
+      const m = modern.checked;
+      boxes.forEach(b => { const g = b.dataset.g; const inkOnly = ['mountains', 'forests', 'biomes', 'sea', 'tint'].includes(g); InkMap.setGroup(map, g, b.checked && !(m && inkOnly)); });
+      InkMap.setGroup(map, 'paper', !m); InkMap.setGroup(map, 'modern', m); InkMap.setGroup(map, 'coast', !m);
+      NAME_LAYERS.forEach(id => { map.setPaintProperty(id, 'text-color', m ? '#333333' : saved[id].c); map.setPaintProperty(id, 'text-halo-color', m ? 'rgba(255,255,255,0.9)' : saved[id].h); });
+    }
+    boxes.forEach(b => b.addEventListener('change', apply)); modern.addEventListener('change', apply);
+  }
+  function setupSearch() {
+    const q = $('q'), sug = $('sug');
+    const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    let sel = -1, items = [];
+    function show(list) { items = list; sel = -1; sug.innerHTML = list.map((it, k) => '<li role="option" data-k="' + k + '">' + esc(it.t) + ' <span>' + esc(it.s) + '</span></li>').join(''); sug.style.display = list.length ? 'block' : 'none'; }
+    function go(it) { sug.style.display = 'none'; q.value = it.t; const r = D.places[it.i]; map.flyTo({ center: [r[0], r[1]], zoom: Math.max(map.getZoom(), 8), duration: 1600 }); map.once('moveend', () => popup(it.i)); }
+    q.addEventListener('input', () => {
+      const v = norm(q.value.trim()); if (v.length < 2) { show([]); return; }
+      const out = [];
+      D.places.forEach((r, i) => { if (out.length < 8 && norm(r[2]).startsWith(v)) out.push({ t: r[2], s: r[3] + ' ships', i }); });
+      D.ships.forEach(s => { if (out.length < 12 && norm(s[0]).includes(v)) out.push({ t: s[0], s: (s[1] || 'year unknown') + ' · ' + D.places[s[9]][2], i: s[9] }); });
+      show(out);
+    });
+    q.addEventListener('keydown', e => {
+      const lis = [...sug.children];
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, Math.min(lis.length - 1, sel + (e.key === 'ArrowDown' ? 1 : -1))); lis.forEach((l, k) => l.setAttribute('aria-selected', k === sel)); }
+      else if (e.key === 'Enter' && items.length) { e.preventDefault(); go(items[Math.max(sel, 0)]); }
+      else if (e.key === 'Escape') sug.style.display = 'none';
+    });
+    sug.addEventListener('click', e => { const li = e.target.closest('li'); if (li) go(items[+li.dataset.k]); });
+  }
+  $('theme').addEventListener('click', () => { const r = document.documentElement; const dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme = dark ? 'light' : 'dark'; });
+})();
+</script>
+{{FULLSCREEN}}
+<script src="https://maps.tristanhotham.com/assets/site-nav.js" defer></script>
+</body>
+</html>

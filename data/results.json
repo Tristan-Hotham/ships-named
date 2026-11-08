@@ -1,0 +1,462 @@
+{
+ "source": {
+  "rn_ships": 6006,
+  "rn_with_p138": 261,
+  "towns": 135,
+  "matched": 394,
+  "by_match": {
+   "name": 350,
+   "castle": 34,
+   "wikidata": 10
+  },
+  "excluded": 675,
+  "year_known": 320,
+  "year_comm": 266,
+  "year_class": 54,
+  "fate_known": 94,
+  "fate_known_pct": 23.85786802030457,
+  "title_ships": 167,
+  "ambiguous_ships": 5,
+  "matched_pct": 6.5601065601065605,
+  "p138_pct": 4.345654345654346,
+  "title_pct": 42.38578680203046
+ },
+ "fates": {
+  "lost": 11,
+  "captured": 0,
+  "broken": 2,
+  "sold": 0,
+  "decomm": 76,
+  "service": 5,
+  "unknown": 300
+ },
+ "top": [
+  {
+   "place": "Gloucester",
+   "ships": 9,
+   "first": 1654.0,
+   "last": 1985.0,
+   "nation": "England"
+  },
+  {
+   "place": "Newcastle upon Tyne",
+   "ships": 9,
+   "first": 1653.0,
+   "last": 1978.0,
+   "nation": "England"
+  },
+  {
+   "place": "Glasgow",
+   "ships": 8,
+   "first": 1741.0,
+   "last": 1979.0,
+   "nation": "Scotland"
+  },
+  {
+   "place": "Chatham",
+   "ships": 7,
+   "first": 1691.0,
+   "last": 1990.0,
+   "nation": "England"
+  },
+  {
+   "place": "Falmouth",
+   "ships": 7,
+   "first": 1693.0,
+   "last": 1961.0,
+   "nation": "England"
+  },
+  {
+   "place": "London",
+   "ships": 7,
+   "first": 1656.0,
+   "last": 1987.0,
+   "nation": "England"
+  },
+  {
+   "place": "Maidstone",
+   "ships": 7,
+   "first": 1744.0,
+   "last": 1937.0,
+   "nation": "England"
+  },
+  {
+   "place": "Pembroke",
+   "ships": 7,
+   "first": 1689.0,
+   "last": 1944.0,
+   "nation": "Wales"
+  },
+  {
+   "place": "Scarborough",
+   "ships": 7,
+   "first": 1708.0,
+   "last": 1957.0,
+   "nation": "England"
+  },
+  {
+   "place": "York",
+   "ships": 7,
+   "first": 1654.0,
+   "last": 1985.0,
+   "nation": "England"
+  },
+  {
+   "place": "Berwick-upon-Tweed",
+   "ships": 6,
+   "first": 1689.0,
+   "last": 1961.0,
+   "nation": "England"
+  },
+  {
+   "place": "Bristol",
+   "ships": 6,
+   "first": 1653.0,
+   "last": 1973.0,
+   "nation": "England"
+  },
+  {
+   "place": "Liverpool",
+   "ships": 6,
+   "first": 1758.0,
+   "last": 1982.0,
+   "nation": "England"
+  },
+  {
+   "place": "Southampton",
+   "ships": 6,
+   "first": 1693.0,
+   "last": 1981.0,
+   "nation": "England"
+  },
+  {
+   "place": "Weymouth",
+   "ships": 6,
+   "first": 1693.0,
+   "last": 1911.0,
+   "nation": "England"
+  }
+ ],
+ "nations": {
+  "England": {
+   "towns": 112,
+   "ships": 333
+  },
+  "Wales": {
+   "towns": 8,
+   "ships": 22
+  },
+  "Scotland": {
+   "towns": 12,
+   "ships": 31
+  },
+  "Northern Ireland": {
+   "towns": 3,
+   "ships": 8
+  }
+ },
+ "coast": {
+  "within10": 85,
+  "within10_pct": 62.96296296296296,
+  "ships_within10_pct": 61.16751269035533
+ },
+ "era": [
+  {
+   "start": 1600,
+   "ships": 17,
+   "town": 0,
+   "pct": 0.0
+  },
+  {
+   "start": 1650,
+   "ships": 195,
+   "town": 65,
+   "pct": 33.333333333333336
+  },
+  {
+   "start": 1700,
+   "ships": 206,
+   "town": 62,
+   "pct": 30.097087378640776
+  },
+  {
+   "start": 1750,
+   "ships": 660,
+   "town": 42,
+   "pct": 6.363636363636363
+  },
+  {
+   "start": 1800,
+   "ships": 896,
+   "town": 21,
+   "pct": 2.34375
+  },
+  {
+   "start": 1850,
+   "ships": 473,
+   "town": 6,
+   "pct": 1.2684989429175475
+  },
+  {
+   "start": 1900,
+   "ships": 1867,
+   "town": 81,
+   "pct": 4.33851098018211
+  },
+  {
+   "start": 1950,
+   "ships": 180,
+   "town": 41,
+   "pct": 22.77777777777778
+  },
+  {
+   "start": 2000,
+   "ships": 23,
+   "town": 2,
+   "pct": 8.695652173913043
+  }
+ ],
+ "peak": {
+  "start": 1650,
+  "pct": 33.333333333333336,
+  "ships": 195,
+  "town": 65
+ },
+ "classes": {
+  "": 91,
+  "1719 Establishment Group": 45,
+  "Castle-class corvette": 21,
+  "1745 Establishment Group": 17,
+  "1706 Establishment": 17,
+  "Type 42 guided missile destroyer": 14,
+  "Rothesay-class frigate": 9,
+  "Type 26 frigate": 8,
+  "Shoreham-class sloop": 8,
+  "Maidstone Group": 7,
+  "V and W-class destroyer": 7,
+  "Grimsby-class sloop-of-war": 6
+ },
+ "castle_class": 21,
+ "type42": 14,
+ "type26": 8,
+ "establishment": 91,
+ "lancaster": {
+  "ships": 4,
+  "names": [
+   "HMS Lancaster",
+   "HMS Lancaster",
+   "HMS Lancaster Castle",
+   "HMS Lancaster"
+  ],
+  "years": [
+   1694,
+   1797,
+   1944,
+   1992
+  ],
+  "classes": [
+   "1719 Establishment Group",
+   "",
+   "Castle-class corvette",
+   "Type 23 frigate"
+  ]
+ },
+ "barrow": {
+  "ships": 0,
+  "in_list": false
+ },
+ "lost": [
+  {
+   "label": "HMS Newcastle",
+   "year": 1653,
+   "event": "shipwrecking"
+  },
+  {
+   "label": "HMS London",
+   "year": 1656,
+   "event": "explosion"
+  },
+  {
+   "label": "HMS York",
+   "year": 1796,
+   "event": "shipwrecking"
+  },
+  {
+   "label": "HMS Nottingham",
+   "year": 1913,
+   "event": "shipwrecking"
+  },
+  {
+   "label": "HMS York",
+   "year": 1930,
+   "event": "ship breaking; shipwrecking"
+  },
+  {
+   "label": "HMS Manchester",
+   "year": 1938,
+   "event": "shipwrecking"
+  },
+  {
+   "label": "HMS Gloucester",
+   "year": 1939,
+   "event": "sinking"
+  },
+  {
+   "label": "HMS Denbigh Castle",
+   "year": 1944,
+   "event": "shipwrecking"
+  },
+  {
+   "label": "HMS Sheffield",
+   "year": 1975,
+   "event": "shipwrecking"
+  },
+  {
+   "label": "HMS Coventry",
+   "year": 1978,
+   "event": "sinking"
+  },
+  {
+   "label": "HMS Saltash",
+   "year": null,
+   "event": "shipwrecking"
+  }
+ ],
+ "intl": {
+  "navies": [
+   {
+    "navy": "United States Navy",
+    "ships": 470,
+    "towns": 150,
+    "places": 353,
+    "top_town": "Newport News",
+    "top_n": 3
+   },
+   {
+    "navy": "Royal Australian Navy",
+    "ships": 121,
+    "towns": 61,
+    "places": 96,
+    "top_town": "Sydney",
+    "top_n": 3
+   },
+   {
+    "navy": "Imperial Japanese Navy",
+    "ships": 101,
+    "towns": 4,
+    "places": 99,
+    "top_town": "Takao",
+    "top_n": 2
+   },
+   {
+    "navy": "French Navy",
+    "ships": 65,
+    "towns": 10,
+    "places": 58,
+    "top_town": "Marseille",
+    "top_n": 2
+   },
+   {
+    "navy": "People's Liberation Army Navy",
+    "ships": 57,
+    "towns": 46,
+    "places": 57,
+    "top_town": "Nanchang",
+    "top_n": 1
+   },
+   {
+    "navy": "Royal Navy",
+    "ships": 47,
+    "towns": 17,
+    "places": 46,
+    "top_town": "Belfast",
+    "top_n": 2
+   },
+   {
+    "navy": "Swedish Navy",
+    "ships": 39,
+    "towns": 11,
+    "places": 25,
+    "top_town": "Helsingborg",
+    "top_n": 2
+   },
+   {
+    "navy": "Portuguese Navy",
+    "ships": 38,
+    "towns": 15,
+    "places": 34,
+    "top_town": "Maputo",
+    "top_n": 2
+   },
+   {
+    "navy": "Russian Navy",
+    "ships": 37,
+    "towns": 27,
+    "places": 36,
+    "top_town": "Novorossiysk",
+    "top_n": 2
+   },
+   {
+    "navy": "German Navy",
+    "ships": 35,
+    "towns": 8,
+    "places": 30,
+    "top_town": "Lübeck",
+    "top_n": 3
+   },
+   {
+    "navy": "Republic of Korea Navy",
+    "ships": 21,
+    "towns": 7,
+    "places": 21,
+    "top_town": "Daejeon",
+    "top_n": 1
+   },
+   {
+    "navy": "Royal Canadian Navy",
+    "ships": 19,
+    "towns": 3,
+    "places": 19,
+    "top_town": "Port Arthur",
+    "top_n": 1
+   },
+   {
+    "navy": "Royal Italian Navy",
+    "ships": 15,
+    "towns": 5,
+    "places": 14,
+    "top_town": "Rome",
+    "top_n": 1
+   },
+   {
+    "navy": "Imperial Russian Navy",
+    "ships": 15,
+    "towns": 6,
+    "places": 14,
+    "top_town": "Derbent",
+    "top_n": 1
+   }
+  ],
+  "usn_ships": 470,
+  "usn_us_towns": 146,
+  "usn_top": {
+   "Newport News": 3,
+   "Coronado": 3,
+   "Raleigh": 3,
+   "Cincinnati": 2,
+   "Louisville": 2
+  },
+  "ships": 1265,
+  "navy_n": 58
+ },
+ "one_ship_towns": 50,
+ "notitle": {
+  "ships": 227,
+  "towns": 93
+ },
+ "town_destroyers": {
+  "in_data": 45,
+  "us_label": 43
+ },
+ "five_plus": 28
+}

@@ -1,0 +1,136 @@
+place,lat,lon,ships,first,last,nation,coast_km,title,ambiguous,confirmed,castle,lost,known_fate,recent,pqid,names,era
+Gloucester,51.8653,-2.2458,9,1654.0,1985.0,England,13.9,True,False,0,0,1,3,0,Q170497,HMS Gloucester (1654); HMS Gloucester (1695); HMS Gloucester (1709); HMS Gloucester (1711); HMS Gloucester (1745); HMS Gloucester (1812); HMS Gloucester (1909); HMS Gloucester (1939); HMS Gloucester (1985),since 1946
+Newcastle upon Tyne,54.9778,-1.6133,9,1653.0,1978.0,England,13.0,True,False,0,0,1,4,0,Q1425428,HMS Newcastle (1653); HMS Newcastle (1704); HMS Newcastle (1755); HMS Newcastle (1813); HMS Newcastle (1860); HMS Newcastle (1910); HMS Newcastle (1937); HMS Newcastle (1978); HMS Newcastle (year unknown),since 1946
+Glasgow,55.8611,-4.25,8,1741.0,1979.0,Scotland,16.3,False,False,1,0,0,3,0,Q4093,HMS Glasgow (1741); HMS Glasgow (1757); HMS Glasgow (1861); HMS Glasgow (1909); HMS Glasgow (1937); HMS Glasgow (1979); HMS Glasgow (year unknown); HMS Glasgow (year unknown),since 1946
+Chatham,51.3819,0.5233,7,1691.0,1990.0,England,3.7,False,False,0,0,0,3,0,Q729006,HMS Chatham (1691); HMS Chatham (1758); HMS Chatham (1788); HMS Chatham (1812); HMS Chatham (1912); HMS Chatham (1990); HMS Chatham (year unknown),since 1946
+Falmouth,50.15,-5.0667,7,1693.0,1961.0,England,0.8,False,False,0,0,0,1,0,Q478029,HMS Falmouth (1693); HMS Falmouth (1708); HMS Falmouth (1752); HMS Falmouth (1813); HMS Falmouth (1910); HMS Falmouth (1932); HMS Falmouth (1961),since 1946
+London,51.5072,-0.1275,7,1656.0,1987.0,England,36.1,False,False,0,0,1,3,0,Q84,HMS London (1656); HMS London (1670); HMS London (1766); HMS London (1840); HMS London (1902); HMS London (1987); HMS London (year unknown),since 1946
+Maidstone,51.2717,0.5294,7,1744.0,1937.0,England,13.9,False,False,0,0,0,1,0,Q213180,HMS Maidstone (1744); HMS Maidstone (1758); HMS Maidstone (1809); HMS Maidstone (1937); HMS Maidstone (year unknown); HMS Maidstone (year unknown); HMS Maidstone (year unknown),1900 to 1945
+Pembroke,51.676,-4.9158,7,1689.0,1944.0,Wales,3.0,True,False,0,1,0,2,0,Q1762242,HMS Pembroke (1689); HMS Pembroke (1694); HMS Pembroke (1710); HMS Pembroke (1733); HMS Pembroke (1757); HMS Pembroke (1812); HMS Pembroke Castle (1944),1900 to 1945
+Scarborough,54.2825,-0.4,7,1708.0,1957.0,England,0.3,False,False,0,0,0,1,0,Q743521,HMS Scarborough (1708); HMS Scarborough (1733); HMS Scarborough (1756); HMS Scarborough (1812); HMS Scarborough (1930); HMS Scarborough (1957); HMS Scarborough (year unknown),since 1946
+York,53.95,-1.0833,7,1654.0,1985.0,England,36.4,True,False,1,0,2,3,0,Q42462,HMS York (1654); HMS York (1706); HMS York (1753); HMS York (1796); HMS York (1807); HMS York (1930); HMS York (1985),since 1946
+Berwick-upon-Tweed,55.7692,-2.0025,6,1689.0,1961.0,England,1.1,False,False,0,0,0,0,0,Q504678,HMS Berwick (1689); HMS Berwick (1723); HMS Berwick (1743); HMS Berwick (1775); HMS Berwick (1809); HMS Berwick (1961),since 1946
+Bristol,51.4536,-2.5975,6,1653.0,1973.0,England,9.5,True,False,0,0,0,2,0,Q23154,HMS Bristol (1653); HMS Bristol (1711); HMS Bristol (1775); HMS Bristol (1861); HMS Bristol (1910); HMS Bristol (1973),since 1946
+Liverpool,53.4072,-2.9917,6,1758.0,1982.0,England,0.0,False,False,1,0,0,3,0,Q24826,HMS Liverpool (1758); HMS Liverpool (1814); HMS Liverpool (1909); HMS Liverpool (1938); HMS Liverpool (1982); HMS Liverpool (year unknown),since 1946
+Southampton,50.9067,-1.4044,6,1693.0,1981.0,England,1.0,True,False,1,0,0,2,0,Q79848,HMS Southampton (1693); HMS Southampton (1757); HMS Southampton (1822); HMS Southampton (1912); HMS Southampton (1937); HMS Southampton (1981),since 1946
+Weymouth,50.6097,-2.4547,6,1693.0,1911.0,England,0.2,False,False,0,0,0,0,0,Q661619,HMS Weymouth (1693); HMS Weymouth (1736); HMS Weymouth (1752); HMS Weymouth (1795); HMS Weymouth (1804); HMS Weymouth (1911),1900 to 1945
+Bideford,51.0162,-4.2171,5,1733.0,1932.0,England,3.8,False,False,0,0,0,0,0,Q1234840,HMS Bideford (1733); HMS Bideford (1932); HMS Bideford (year unknown); HMS Bideford (year unknown); HMS Bideford (year unknown),1900 to 1945
+Coventry,52.4167,-1.5167,5,1658.0,1978.0,England,92.9,True,False,0,0,1,2,0,Q6225,HMS Coventry (1658); HMS Coventry (1695); HMS Coventry (1757); HMS Coventry (1918); HMS Coventry (1978),since 1946
+Dartmouth,50.3503,-3.5786,5,1693.0,1911.0,England,0.4,True,False,0,0,0,0,0,Q1007083,HMS Dartmouth (1693); HMS Dartmouth (1698); HMS Dartmouth (1809); HMS Dartmouth (1911); HMS Dartmouth (year unknown),1900 to 1945
+Edinburgh,55.9533,-3.1892,5,1811.0,1985.0,Scotland,2.1,True,False,0,0,0,1,0,Q23436,HMS Edinburgh (1811); HMS Edinburgh (1882); HMS Edinburgh (1939); HMS Edinburgh (1985); HMS Edinburgh (year unknown),since 1946
+Exeter,50.7256,-3.5269,5,1680.0,1980.0,England,6.8,True,False,0,0,0,3,0,Q134672,HMS Exeter (1680); HMS Exeter (1697); HMS Exeter (1763); HMS Exeter (1931); HMS Exeter (1980),since 1946
+Fowey,50.334,-4.633,5,1744.0,1931.0,England,1.2,False,False,0,0,0,0,0,Q1025790,HMS Fowey (1744); HMS Fowey (1749); HMS Fowey (1931); HMS Fowey (year unknown); HMS Fowey (year unknown),1900 to 1945
+Great Yarmouth,52.6078,1.7331,5,1653.0,1960.0,England,0.6,False,False,0,0,0,1,0,Q237253,HMS Yarmouth (1653); HMS Yarmouth (1695); HMS Yarmouth (1745); HMS Yarmouth (1912); HMS Yarmouth (1960),since 1946
+Portland,50.55,-2.4417,5,1653.0,2001.0,England,0.5,True,False,0,0,0,1,1,Q29168518,HMS Portland (1653); HMS Portland (1693); HMS Portland (1744); HMS Portland (1780); HMS Portland (2001),since 1946
+Salisbury,51.074,-1.7936,5,1698.0,1958.0,England,28.8,True,False,0,0,0,0,0,Q160642,HMS Salisbury (1698); HMS Salisbury (1707); HMS Salisbury (1746); HMS Salisbury (1958); HMS Salisbury (year unknown),since 1946
+St Albans,51.755,-0.336,5,1687.0,2002.0,England,60.2,True,False,0,0,0,1,1,Q6226,HMS St Albans (1687); HMS St Albans (1706); HMS St Albans (1747); HMS St Albans (1764); HMS St Albans (2002),since 1946
+Stirling,56.1166,-3.9369,5,1679.0,1811.0,Scotland,6.2,False,False,0,5,0,0,0,Q182923,HMS Stirling Castle (1679); HMS Stirling Castle (1705); HMS Stirling Castle (1742); HMS Stirling Castle (1775); HMS Stirling Castle (1811),1800s
+Winchester,51.0633,-1.3086,5,1693.0,1918.0,England,19.5,True,False,0,0,0,1,0,Q172157,HMS Winchester (1693); HMS Winchester (1698); HMS Winchester (1744); HMS Winchester (1822); HMS Winchester (1918),1900 to 1945
+Worcester,52.1911,-2.2206,5,1698.0,1922.0,England,47.1,True,False,0,0,0,1,0,Q1646181,HMS Worcester (1698); HMS Worcester (1735); HMS Worcester (1769); HMS Worcester (1843); HMS Worcester (1922),1900 to 1945
+Birmingham,52.48,-1.9025,4,1914.0,1976.0,England,84.7,False,False,0,0,0,1,0,Q2256,HMS Birmingham (1914); HMS Birmingham (1937); HMS Birmingham (1976); HMS Birmingham (year unknown),since 1946
+Cambridge,52.2081,0.1225,4,1666.0,1815.0,England,64.8,True,False,0,0,0,1,0,Q350,HMS Cambridge (1666); HMS Cambridge (1695); HMS Cambridge (1755); HMS Cambridge (1815),1800s
+Chester,53.2,-2.8833,4,1691.0,1916.0,England,9.8,True,False,0,0,0,0,0,Q170263,HMS Chester (1691); HMS Chester (1708); HMS Chester (1743); HMS Chester (1916),1900 to 1945
+Chichester,50.8365,-0.7792,4,1695.0,1958.0,England,6.7,True,False,0,0,0,1,0,Q207639,HMS Chichester (1695); HMS Chichester (1753); HMS Chichester (1958); HMS Chichester (year unknown),since 1946
+Colchester,51.8886,0.9036,4,1694.0,1746.0,England,7.3,False,False,0,0,0,0,0,Q184163,HMS Colchester (1694); HMS Colchester (1707); HMS Colchester (1744); HMS Colchester (1746),before 1800
+Deal,51.2226,1.4006,4,1708.0,1756.0,England,0.9,False,False,0,4,0,0,0,Q1011096,HMS Deal Castle (1708); HMS Deal Castle (1756); HMS Deal Castle (year unknown); HMS Deal Castle (year unknown),before 1800
+Greenwich,51.48,0.0,4,1666.0,1747.0,England,26.9,False,False,0,0,0,1,0,Q179385,HMS Greenwich (1666); HMS Greenwich (1747); HMS Greenwich (year unknown); HMS Greenwich (year unknown),before 1800
+Lancaster,54.0489,-2.8014,4,1694.0,1992.0,England,4.1,True,False,0,1,0,2,1,Q205905,HMS Lancaster (1694); HMS Lancaster (1797); HMS Lancaster Castle (1944); HMS Lancaster (1992),since 1946
+Larne,54.8517,-5.8133,4,1813.0,1943.0,Northern Ireland,0.1,False,False,0,0,0,1,0,Q935686,HMS Larne (1813); HMS Larne (1910); HMS Larne (1943); HMS Larne (year unknown),1900 to 1945
+Milford Haven,51.7142,-5.0427,4,1759.0,1932.0,Wales,0.6,False,False,0,0,0,0,0,Q991055,HMS Milford (1759); HMS Milford (1809); HMS Milford (1932); HMS Milford (year unknown),1900 to 1945
+Monmouth,51.81,-2.72,4,1667.0,1993.0,Wales,17.2,True,False,0,0,0,1,0,Q156990,HMS Monmouth (1667); HMS Monmouth (1772); HMS Monmouth (1796); HMS Monmouth (1993),since 1946
+Oxford,51.7519,-1.2578,4,1674.0,1944.0,England,77.5,True,False,0,1,0,1,0,Q34217,HMS Oxford (1674); HMS Oxford Castle (1944); HMS Oxford (year unknown); HMS Oxford (year unknown),1900 to 1945
+Saltash,50.408,-4.212,4,1745.0,1745.0,England,0.5,False,False,0,0,1,1,0,Q1994597,HMS Saltash (1745); HMS Saltash (year unknown); HMS Saltash (year unknown); HMS Saltash (year unknown),before 1800
+Seaford,50.77,0.1,4,1733.0,1733.0,England,0.2,False,False,0,0,0,0,0,Q1640242,HMS Seaford (1733); HMS Seaford (year unknown); HMS Seaford (year unknown); HMS Seaford (year unknown),before 1800
+Sheffield,53.3808,-1.4703,4,1937.0,1988.0,England,60.8,False,False,0,0,1,2,0,Q42448,HMS Sheffield (1937); HMS Sheffield (1975); HMS Sheffield (1988); HMS Sheffield (year unknown),since 1946
+Tilbury,51.4606,0.3582,4,1699.0,1918.0,England,2.0,False,False,0,0,0,0,0,Q648432,HMS Tilbury (1699); HMS Tilbury (1733); HMS Tilbury (1745); HMS Tilbury (1918),1900 to 1945
+Winchelsea,50.925,0.7083,4,1733.0,1918.0,England,2.2,True,False,0,0,0,1,0,Q1026871,HMS Winchelsea (1733); HMS Winchelsea (1764); HMS Winchelsea (1918); HMS Winchelsea (year unknown),1900 to 1945
+Windsor,51.4833,-0.6,4,1695.0,1918.0,England,68.5,True,False,0,2,0,0,0,Q464955,HMS Windsor (1695); HMS Windsor Castle (1790); HMS Windsor Castle (1858); HMS Windsor (1918),1900 to 1945
+Woolwich,51.4917,0.0667,4,1675.0,1749.0,England,22.5,False,False,0,0,0,0,0,Q1006232,HMS Woolwich (1675); HMS Woolwich (1749); HMS Woolwich (year unknown); HMS Woolwich (year unknown),before 1800
+Burford,51.808,-1.637,3,1679.0,1757.0,England,51.6,True,False,0,0,0,2,0,Q2019274,HMS Burford (1679); HMS Burford (1722); HMS Burford (1757),before 1800
+Campbeltown,55.4233,-5.6061,3,1940.0,1989.0,Scotland,1.4,False,False,0,0,0,1,0,Q1012490,HMS Campbeltown (1940); HMS Campbeltown (1989); HMS Campbeltown (year unknown),since 1946
+Cardiff,51.4817,-3.1792,3,1916.0,1979.0,Wales,3.0,False,False,1,0,0,2,0,Q10690,HMS Cardiff (1916); HMS Cardiff (1979); HMS Cardiff (year unknown),since 1946
+Carlisle,54.8947,-2.9364,3,1693.0,1918.0,England,8.6,True,False,0,0,0,0,0,Q192896,HMS Carlisle (1693); HMS Carlisle (1698); HMS Carlisle (1918),1900 to 1945
+Dover,51.1275,1.3122,3,1654.0,1654.0,England,0.7,False,False,0,0,0,0,0,Q179224,HMS Dover (1654); HMS Dover (year unknown); HMS Dover (year unknown),before 1800
+Harwich,51.9444,1.2883,3,1674.0,1743.0,England,0.5,False,False,0,0,0,0,0,Q990616,HMS Harwich (1674); HMS Harwich (1695); HMS Harwich (1743),before 1800
+Hastings,50.855,0.5833,3,1694.0,1930.0,England,0.2,False,False,0,0,0,0,0,Q29245,HMS Hastings (1694); HMS Hastings (1930); HMS Hastings (year unknown),1900 to 1945
+Looe,50.3535,-4.454,3,1694.0,1741.0,England,1.4,False,False,0,0,0,0,0,Q1024896,HMS Looe (1694); HMS Looe (1741); HMS Looe (year unknown),before 1800
+Lowestoft,52.48,1.75,3,1914.0,1961.0,England,1.1,False,False,0,0,0,1,0,Q986007,HMS Lowestoft (1914); HMS Lowestoft (1961); HMS Lowestoft (year unknown),since 1946
+Norwich,52.6286,1.2928,3,1691.0,1745.0,England,27.5,False,False,0,0,0,0,0,Q130191,HMS Norwich (1691); HMS Norwich (1693); HMS Norwich (1745),before 1800
+Nottingham,52.955,-1.1492,3,1703.0,1983.0,England,78.1,True,False,0,0,1,2,0,Q41262,HMS Nottingham (1703); HMS Nottingham (1913); HMS Nottingham (1983),since 1946
+Orford,53.4072,-2.5825,3,1698.0,1916.0,England,9.9,True,False,0,0,0,0,0,Q7101720,HMS Orford (1698); HMS Orford (1749); HMS Orford (1916),1900 to 1945
+Plymouth,50.3714,-4.1422,3,1653.0,1961.0,England,0.2,True,False,0,0,0,1,0,Q43382,HMS Plymouth (1653); HMS Plymouth (1708); HMS Plymouth (1961),since 1946
+Redbridge,50.9198,-1.4736,3,1798.0,1798.0,England,0.5,False,False,0,0,0,1,0,Q7305499,HMS Redbridge (1798); HMS Redbridge (year unknown); HMS Redbridge (year unknown),before 1800
+Richmond,51.456,-0.301,3,1757.0,1995.0,England,47.6,True,True,0,0,0,1,1,Q2500974,HMS Richmond (1757); HMS Richmond (1995); HMS Richmond (year unknown),since 1946
+Rochester,51.3876,0.5055,3,1693.0,1932.0,England,4.4,True,False,0,0,0,0,0,Q507517,HMS Rochester (1693); HMS Rochester (1749); HMS Rochester (1932),1900 to 1945
+Rye,50.95,0.7333,3,1708.0,1733.0,England,3.0,False,False,0,0,0,0,0,Q1020800,HMS Rye (1708); HMS Rye (1733); HMS Rye (year unknown),before 1800
+Sandwich,51.2747,1.3389,3,1679.0,1759.0,England,3.7,True,False,0,0,0,0,0,Q26163,HMS Sandwich (1679); HMS Sandwich (1759); HMS Sandwich (year unknown),before 1800
+Sheerness,51.4411,0.7608,3,1741.0,1741.0,England,0.6,False,False,0,0,0,0,0,Q1003196,HMS Sheerness (1741); HMS Sheerness (year unknown); HMS Sheerness (year unknown),before 1800
+Shoreham-by-Sea,50.8329,-0.2682,3,1708.0,1932.0,England,0.2,False,False,0,0,0,0,0,Q770599,HMS Shoreham (1708); HMS Shoreham (1741); HMS Shoreham (1932),1900 to 1945
+Shrewsbury,52.7081,-2.7544,3,1695.0,1944.0,England,62.7,True,False,0,1,0,0,0,Q201970,HMS Shrewsbury (1695); HMS Shrewsbury (1758); HMS Shrewsbury Castle (1944),1900 to 1945
+Warwick,52.28,-1.59,3,1696.0,1918.0,England,78.4,True,False,0,0,0,0,0,Q549761,HMS Warwick (1696); HMS Warwick (1733); HMS Warwick (1918),1900 to 1945
+Arundel,50.8547,-0.5547,2,1751.0,1751.0,England,5.9,True,False,0,0,0,0,0,Q716658,HMS Arundel (1751); HMS Arundel (year unknown),before 1800
+Bedford,52.1344,-0.4631,2,1698.0,1775.0,England,88.0,True,False,0,0,0,0,0,Q208257,HMS Bedford (1698); HMS Bedford (1775),before 1800
+Belfast,54.5967,-5.93,2,1939.0,1939.0,Northern Ireland,1.8,False,False,2,0,0,1,0,Q10686,HMS Belfast (1939); HMS Belfast (year unknown),1900 to 1945
+Buckingham,52.0,-1.0,2,1731.0,1751.0,England,98.5,True,False,0,0,0,0,0,Q195955,HMS Buckingham (1731); HMS Buckingham (1751),before 1800
+Canterbury,51.2783,1.0775,2,1693.0,1915.0,England,9.6,False,False,0,0,0,1,0,Q29303,HMS Canterbury (1693); HMS Canterbury (1915),1900 to 1945
+Derry,54.9917,-7.3417,2,1961.0,1961.0,Northern Ireland,8.5,False,False,0,0,0,1,0,Q163584,HMS Londonderry (1961); HMS Londonderry (year unknown),since 1946
+Dumbarton,55.9486,-4.5472,2,1944.0,1944.0,Scotland,1.3,False,False,0,2,0,0,0,Q34779,HMS Dumbarton Castle (1944); HMS Dumbarton Castle (year unknown),1900 to 1945
+Leith,55.9801,-3.17,2,,,Scotland,0.9,False,False,0,0,0,1,0,Q1018540,HMS Leith (year unknown); HMS Leith (year unknown),
+Lichfield,52.6835,-1.8265,2,1695.0,1746.0,England,93.2,False,False,0,0,0,0,0,Q207371,HMS Lichfield (1695); HMS Lichfield (1746),before 1800
+Lincoln,53.25,-0.55,2,1695.0,1960.0,England,47.2,True,False,0,0,0,0,0,Q180057,HMS Lincoln (1695); HMS Lincoln (1960),since 1946
+Manchester,53.4794,-2.2453,2,1938.0,1982.0,England,33.4,False,False,1,0,1,2,0,Q18125,HMS Manchester (1938); HMS Manchester (1982),since 1946
+Penzance,50.1214,-5.5369,2,1931.0,1931.0,England,0.5,False,False,0,0,0,0,0,Q208209,HMS Penzance (1931); HMS Penzance (year unknown),1900 to 1945
+Portsmouth,50.8058,-1.0872,2,1650.0,1650.0,England,0.7,True,False,1,0,0,0,0,Q72259,HMS Portsmouth (1650); HMS Portsmouth (year unknown),before 1800
+Queenborough,51.4183,0.745,2,1751.0,1751.0,England,0.5,False,False,0,0,0,0,0,Q587299,HMS Queenborough (1751); HMS Queenborough (year unknown),before 1800
+Sunderland,54.9044,-1.3811,2,1694.0,1724.0,England,1.6,True,False,0,0,0,0,0,Q188304,HMS Sunderland (1694); HMS Sunderland (1724),before 1800
+Tavistock,50.55,-4.1442,2,1745.0,1747.0,England,10.1,True,False,0,0,0,0,0,Q668262,HMS Tavistock (1745); HMS Tavistock (1747),before 1800
+Aberdeen,57.15,-2.1,1,1936.0,1936.0,Scotland,1.6,False,False,0,0,0,0,0,Q36405,HMS Aberdeen (1936),1900 to 1945
+Alnwick,55.4134,-1.7069,1,1944.0,1944.0,England,7.8,False,False,0,1,0,1,0,Q1002826,HMS Alnwick Castle (1944),1900 to 1945
+Birkenhead,53.3833,-3.0167,1,1915.0,1915.0,England,1.6,False,False,0,0,0,0,0,Q746718,HMS Birkenhead (1915),1900 to 1945
+Blackpool,53.8167,-3.05,1,1958.0,1958.0,England,0.3,False,False,0,0,0,0,0,Q170377,HMS Blackpool (1958),since 1946
+Brighton,50.8208,-0.1375,1,1961.0,1961.0,England,0.0,False,False,0,0,0,1,0,Q131491,HMS Brighton (1961),since 1946
+Caister-on-Sea,52.651,1.733,1,1944.0,1944.0,England,0.2,False,False,0,1,0,1,0,Q629427,HMS Caistor Castle (1944),1900 to 1945
+Chesterfield,53.2358,-1.4275,1,,,England,69.6,True,False,0,0,0,0,0,Q823600,HMS Chesterfield (year unknown),
+Denbigh,53.1872,-3.4157,1,1944.0,1944.0,Wales,15.0,False,False,0,1,1,1,0,Q1186888,HMS Denbigh Castle (1944),1900 to 1945
+Dundee,56.4606,-2.97,1,1933.0,1933.0,Scotland,0.2,False,False,0,0,0,0,0,Q123709,HMS Dundee (1933),1900 to 1945
+Eastbourne,50.7664,0.2861,1,1958.0,1958.0,England,0.3,False,False,0,0,0,1,0,Q208262,HMS Eastbourne (1958),since 1946
+Farnborough,51.29,-0.75,1,,,England,51.4,False,True,0,0,0,0,0,Q547071,HMS Farnborough (year unknown),
+Farnham,51.214,-0.799,1,1945.0,1945.0,England,42.4,False,False,0,1,0,1,0,Q643160,HMS Farnham Castle (1945),1900 to 1945
+Fleetwood,53.925,-3.015,1,,,England,0.7,False,False,0,0,0,0,0,Q1012507,HMS Fleetwood (year unknown),
+Flint,53.244,-3.132,1,1944.0,1944.0,Wales,1.8,False,False,0,1,0,0,0,Q1428848,HMS Flint Castle (1944),1900 to 1945
+Folkestone,51.0792,1.1794,1,1930.0,1930.0,England,0.0,False,False,0,0,0,0,0,Q375314,HMS Folkestone (1930),1900 to 1945
+Gosport,50.7951,-1.1242,1,,,England,0.1,False,False,0,0,0,0,0,Q936263,HMS Gosport (year unknown),
+Grimsby,53.5675,-0.08,1,,,England,0.9,False,False,0,0,0,0,0,Q179406,HMS Grimsby (year unknown),
+Guildford,51.2354,-0.5746,1,1944.0,1944.0,England,48.2,False,False,0,1,0,1,0,Q213465,HMS Guildford Castle (1944),1900 to 1945
+Hadleigh,51.5535,0.6095,1,1943.0,1943.0,England,3.2,False,False,0,1,0,1,0,Q2346831,HMS Hadleigh Castle (1943),1900 to 1945
+Havant,50.85,-0.98,1,1939.0,1939.0,England,0.3,False,False,0,0,0,0,0,Q1234712,HMS Havant (1939),1900 to 1945
+Ipswich,52.0594,1.1556,1,1694.0,1694.0,England,3.4,False,False,0,0,0,0,0,Q184775,HMS Ipswich (1694),before 1800
+Kenilworth,52.341,-1.566,1,1943.0,1943.0,England,84.4,False,False,0,1,0,0,0,Q2281103,HMS Kenilworth Castle (1943),1900 to 1945
+Kennington,51.4813,-0.1197,1,1733.0,1733.0,England,35.2,False,True,0,0,0,0,0,Q146696,HMS Kennington (1733),before 1800
+Knaresborough,54.0084,-1.467,1,1944.0,1944.0,England,59.5,False,False,0,1,0,0,0,Q535902,HMS Knaresborough Castle (1944),1900 to 1945
+Largs,55.7939,-4.8636,1,,,Scotland,0.2,False,False,0,0,0,1,0,Q1016169,HMS Largs (year unknown),
+Launceston,50.635,-4.354,1,1944.0,1944.0,England,22.1,False,False,0,1,0,1,0,Q287590,HMS Launceston Castle (1944),1900 to 1945
+Ludlow,52.3667,-2.7167,1,,,England,68.6,True,False,0,0,0,0,0,Q839811,HMS Ludlow (year unknown),
+Mansfield,53.1435,-1.1963,1,,,England,69.1,False,False,0,0,0,0,0,Q841979,HMS Mansfield (year unknown),
+Montrose,56.708,-2.467,1,1994.0,1994.0,Scotland,1.2,True,False,0,0,0,1,1,Q420303,HMS Montrose (1994),since 1946
+Morpeth,55.1675,-1.6908,1,1944.0,1944.0,England,10.7,False,False,0,1,0,0,0,Q736785,HMS Morpeth Castle (1944),1900 to 1945
+Northampton,52.2333,-0.9,1,1876.0,1876.0,England,95.3,True,False,0,0,0,0,0,Q192240,HMS Northampton (1876),1800s
+Oakham,52.6705,-0.7333,1,1944.0,1944.0,England,55.6,False,False,0,1,0,0,0,Q1001942,HMS Oakham Castle (1944),1900 to 1945
+Perth,56.3958,-3.4333,1,,,Scotland,7.6,True,False,0,0,0,0,0,Q203000,HMS Perth (year unknown),
+Poole,50.7167,-1.9833,1,,,England,0.3,False,False,0,0,0,0,0,Q203349,HMS Poole (year unknown),
+Portchester,50.842,-1.12,1,1944.0,1944.0,England,0.7,False,False,0,1,0,0,0,Q1238552,HMS Portchester Castle (1944),1900 to 1945
+Preston,53.7594,-2.6981,1,1757.0,1757.0,England,13.5,False,False,0,0,0,0,0,Q184090,HMS Preston (1757),before 1800
+Rhyl,53.3212,-3.4802,1,1960.0,1960.0,Wales,0.2,False,False,0,0,0,1,0,Q2020203,HMS Rhyl (1960),since 1946
+Rothesay,55.8364,-5.055,1,1960.0,1960.0,Scotland,0.7,False,False,0,0,0,1,0,Q1818828,HMS Rothesay (1960),since 1946
+Selby,53.7818,-1.0703,1,,,England,24.4,False,False,0,0,0,0,0,Q527846,HMS Selby (year unknown),
+Sherborne,50.9491,-2.5183,1,1944.0,1944.0,England,31.0,False,False,0,1,0,1,0,Q586895,HMS Sherborne Castle (1944),1900 to 1945
+Southsea,50.785,-1.07,1,,,England,0.3,False,False,0,1,0,0,0,Q541348,HMS Southsea Castle (year unknown),
+Tamworth,52.6339,-1.695,1,1944.0,1944.0,England,103.2,False,False,0,1,0,1,0,Q704864,HMS Tamworth Castle (1944),1900 to 1945
+Tenby,51.6714,-4.6994,1,1957.0,1957.0,Wales,0.1,False,False,0,0,0,1,0,Q558878,HMS Tenby (1957),since 1946
+Torbay,50.4522,-3.5569,1,,,England,0.8,False,False,1,0,0,1,0,Q1136118,HMS Torbay (year unknown),
+Torquay,50.4625,-3.5281,1,1956.0,1956.0,England,0.8,False,False,0,0,0,1,0,Q209055,HMS Torquay (1956),since 1946
+Walmer,51.2043,1.3985,1,1944.0,1944.0,England,0.7,False,False,0,1,0,1,0,Q2551894,HMS Walmer Castle (1944),1900 to 1945
+Westminster,51.4995,-0.1333,1,1918.0,1918.0,England,36.3,False,False,0,0,0,1,0,Q189960,HMS Westminster (1918),1900 to 1945
+Weston-super-Mare,51.3478,-2.9781,1,1932.0,1932.0,England,0.5,False,False,0,0,0,0,0,Q845623,HMS Weston (1932),1900 to 1945
+Whitby,54.4858,-0.6206,1,1956.0,1956.0,England,1.2,False,False,0,0,0,1,0,Q852778,HMS Whitby (1956),since 1946
+Woolston,50.8931,-1.3765,1,1918.0,1918.0,England,0.7,False,False,0,0,0,1,0,Q8033947,HMS Woolston (1918),1900 to 1945

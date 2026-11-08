@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={HMS Your Town},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries HMS Your Town\par}
+\vspace{0.4em}
+{\large British towns and the Royal Navy ships named after them, from Wikidata\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: https://doi.org/10.5281/zenodo.24052719\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+Many British towns have given their name to a warship. I ask which towns, how often, when, and what became of the ships, using the {{source.rn_ships|int}} Royal Navy ships named ``HMS'' in Wikidata. Because Wikidata records what a ship was named after for only {{source.rn_with_p138|int}} of them, I match ship names strictly to British towns and cities, excluding classes and names that honour other things, and flag names that are also noble titles. The result is {{source.matched|int}} ships named after {{source.towns|int}} towns and cities. Gloucester and Newcastle upon Tyne have had nine ships each; {{five_plus|int}} towns have had five or more and {{one_ship_towns|int}} just one. {{coast.within10_pct|int}}\% of the towns lie within 10 km of the open sea. Town names were common in the later 1600s ({{peak.pct|int}}\% of ships commissioned 1650 to 1699), rare through the 1800s (under 3\%) and common again after 1950 ({{era.7.pct|int}}\%). The question of fate can hardly be answered from open data: only {{source.fate_known_pct|int}}\% of the ships have any recorded end, {{fates.lost|int}} of them a loss. Ships named after places in other navies' Wikidata records show the same habit, most of all in the United States Navy ({{intl.usn_us_towns|int}} ships named after American towns and cities).
+
+\textbf{Keywords:} naval history; ship names; Royal Navy; toponymy; Wikidata; civic identity; open data
+\end{quote}
+
+\section{Introduction}
+A warship named after a town is a link between the town and the Navy: the ship carries the town's name, crest and often gifts from its people, and the town follows the ship. This short study asks which British towns have been honoured in this way, how many times, in which eras, and what happened to the ships. It accompanies an interactive map ({{PAGE}}).
+
+\section{Data}
+\textbf{Ships.} The ships are the items in Wikidata \citep{wikidata} operated by the Royal Navy whose label begins ``HMS'' ({{source.rn_ships|int}} ships), with their class, commissioning and decommissioning dates where present, their significant events (launch, commissioning, sinking, shipwreck, breaking up and so on) and, for {{source.rn_with_p138|int}} ships, the item they are named after (property P138). A second extract lists ships of all navies with P138 pointing to a place with coordinates, used for the international comparison.
+
+\textbf{Towns.} British towns and cities come from Wikidata's settlements in the United Kingdom, with coordinates, population and type. For matching I keep places typed as town, market town, city, county town, seaside resort or new town, or with 10,000 people or more, inside the bounds of the United Kingdom.
+
+\section{Methods}
+\subsection{Matching ships to towns}
+A ship is linked to a town in one of three ways. Where its P138 is a British town or city, that town is used ({{source.by_match.wikidata|int}} ships). Otherwise its name after ``HMS'' must equal a town's name exactly ({{source.by_match.name|int}} ships), or be ``\textit{town} Castle'', for ships named after a town's castle ({{source.by_match.castle|int}} ships, most of them Castle-class corvettes of 1944). Where several towns share a name, the most populous is used and the match flagged; common short forms are mapped to the town the Navy meant (Newcastle to Newcastle upon Tyne, Yarmouth to Great Yarmouth, Berwick to Berwick-upon-Tweed, Londonderry to Derry, Shoreham to Shoreham-by-Sea, Milford to Milford Haven, Weston to Weston-super-Mare), and three castles are placed where they stand (Leeds Castle, in Kent, is excluded; Caistor Castle is Caister Castle in Norfolk; Hadleigh Castle is in Essex). Excluded are ships whose P138 is anything but a British town (a person, a foreign place, a county or a river), classes named after other things (the Hunt-class destroyers after fox hunts, the Racecourse-class after racecourses, the River, Flower, Bird, Tree, Isles and Dance classes, and the classes named after counties: the Monmouth and Devonshire armoured cruisers, the County-class heavy cruisers and the County-class destroyers), and a list of names that honour people, battles, rivers, counties or foreign places though a British town shares them (Nelson, Wellington, Marlborough, Dunkirk, Gibraltar, Halifax, Colne and others; the list is in the code). In all {{source.excluded|int}} ships were excluded by these rules. Names that are also titles of royal dukes or peers (York, Gloucester, Lancaster, Newcastle and others) are kept but flagged: {{source.title_ships|int}} ships carry such a name, and some of the older ones may honour the duke or earl rather than the town.
+
+\subsection{Years and fates}
+A ship's year is its commissioning year ({{source.year_comm|int}} matched ships); otherwise the median commissioning year of its class when three or more members are dated, or the year in the name of an ``Establishment'' class ({{source.year_class|int}} ships). {{source.year_known|int}} of the {{source.matched|int}} ships have a year. Fates come from the ship's events, in this order of precedence: sunk, wrecked, scuttled or destroyed; captured; broken up or scrapped; sold or transferred; decommissioned; and, for ships commissioned since 1985 with no end recorded, ``in service or recent''.
+
+\section{Results}
+\subsection{Which towns}
+Figure~\ref{fig:map} maps the {{source.towns|int}} towns. {{nations.England.towns|int}} are in England, {{nations.Scotland.towns|int}} in Scotland, {{nations.Wales.towns|int}} in Wales and {{nations.Northern_Ireland.towns|int}} in Northern Ireland. The most-named (Figure~\ref{fig:top}) are Gloucester and Newcastle upon Tyne with nine ships each, Glasgow with eight, and Chatham, Falmouth, London, Maidstone, Pembroke, Scarborough and York with seven. They are old ports, cathedral cities and the dockyard towns of the Navy. {{coast.within10|int}} of the towns ({{coast.within10_pct|int}}\%) lie within 10 km of the open sea, measured to the Natural Earth coastline \citep{naturalearth}.
+
+\begin{figure}[tbp]\centering\includegraphics[width=0.82\textwidth]{f_map.jpg}
+\caption{British towns and cities with a Royal Navy ship of their name, sized by the number of ships and coloured by the era of the latest.}\label{fig:map}\end{figure}
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_top.png}
+\caption{The twenty towns with most ships; each block is one ship, coloured by era.}\label{fig:top}\end{figure}
+
+\subsection{When}
+Town names follow a long cycle (Figure~\ref{fig:eras}). Of the Royal Navy ships in Wikidata commissioned from 1650 to 1699, {{peak.pct|f1}}\% ({{peak.town|int}} of {{peak.ships|int}}) bear a British town's name, and {{era.2.pct|f1}}\% from 1700 to 1749. The share then falls to {{era.3.pct|f1}}\%, {{era.4.pct|f1}}\% and {{era.5.pct|f1}}\% in the following half centuries, and rises again to {{era.6.pct|f1}}\% in 1900 to 1949 and {{era.7.pct|f1}}\% in 1950 to 1999, the years of the Castle-class corvettes ({{castle_class|int}} ships), the town-named frigates and the Type 42 destroyers named after cities ({{type42|int}}). The early peak is partly a peak of noble titles that were also town names.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_eras.png}
+\caption{Share of Royal Navy ships with a British town's name by half century of commissioning (or the class's typical year).}\label{fig:eras}\end{figure}
+
+\subsection{Two towns by hand}
+Lancaster has {{lancaster.ships|int}} ships: HMS Lancaster ({{lancaster.years.0|raw}}), HMS Lancaster ({{lancaster.years.1|raw}}), the corvette HMS Lancaster Castle ({{lancaster.years.2|raw}}) and the Type 23 frigate HMS Lancaster ({{lancaster.years.3|raw}}), which like the rest of its class is named after a dukedom. The Monmouth-class armoured cruiser of 1902 is excluded as one of a class named after counties, and the Town-class destroyer of 1940 is in Wikidata only under its American name. Barrow-in-Furness, a great shipbuilding town, has none in the data.
+
+\subsection{Fates}
+Only {{source.fate_known|int}} of the {{source.matched|int}} ships ({{source.fate_known_pct|f1}}\%) have any recorded end (Figure~\ref{fig:fates}): {{fates.decomm|int}} only a decommissioning, {{fates.lost|int}} a loss, {{fates.broken|int}} a breaking up, and {{fates.service|int}} are recent ships with no end recorded. The recorded losses include HMS Gloucester (sunk off Crete in 1941) and HMS Sheffield and HMS Coventry (lost in the Falklands in 1982). Wikidata simply does not hold the fate of most Royal Navy ships, and a map of fates is mostly a map of gaps.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_fates.png}
+\caption{Recorded fates of the town-named ships.}\label{fig:fates}\end{figure}
+
+\subsection{Other navies}
+Among ships of all navies whose Wikidata entry names the place they honour, the United States Navy has {{intl.usn_ships|int}}, {{intl.usn_us_towns|int}} of them named after American towns and cities (Figure~\ref{fig:intl}). The Royal Australian Navy also names ships mainly after its towns, while the Imperial Japanese Navy's place-named ships honour mountains, rivers and provinces, almost never towns. These counts reflect how often Wikidata records P138, which varies by navy, more than the navies' habits.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_intl.png}
+\caption{Ships named after towns and cities (blue) among ships named after any place, by navy, from Wikidata's ``named after''.}\label{fig:intl}\end{figure}
+
+\section{Limitations}
+Wikidata's list of Royal Navy ships is long but incomplete and uneven across periods. Only {{source.rn_with_p138|int}} of the {{source.rn_ships|int}} ships ({{source.p138_pct|f1}}\%) record what they were named after, and the matched ships are {{source.matched_pct|f1}}\% of all of them. Whole groups can be missing: {{town_destroyers.us_label|int}} of the {{town_destroyers.in_data|int}} Town-class destroyers transferred from the United States in 1940, each named after a town common to both countries, are in Wikidata only under their American names. {{source.title_ships|int}} matched ships ({{source.title_pct|f1}}\%) carry a name that is also a noble title; without them {{notitle.ships|int}} ships and {{notitle.towns|int}} towns remain. Matching by name is inference: a ship may honour a duke whose title is a town, or a different place of the same name, and some names in the excluded list could honour a town after all. Years are missing for some ships and approximate for others. Fates are recorded for a quarter of the ships, so nothing here measures how many town-named ships were lost. A printed register such as \citet{colledge} would fill many of these gaps.
+
+\section{Conclusion}
+A warship of the town's name is an old and widespread honour: {{source.towns|int}} British towns in the data have had one, mostly ports and old cities, and the fashion has come and gone over three and a half centuries. What became of the ships is the part the open record cannot yet tell.
+
+\section*{Data and code availability}
+Derived data (each matched ship with its town, year and recorded fate; each town; the international table), the exclusion rules and all code are at {{REPO}} and in the Zenodo record https://doi.org/10.5281/zenodo.24052719. Code MIT; text, figures and derived data CC BY 4.0. Source data from Wikidata (CC0).
+
+\section*{AI statement}
+{{AI}}
+
+\begin{thebibliography}{9}
+\bibitem[Colledge and Warlow(2006)]{colledge} Colledge, J. J. and Warlow, B. (2006) \textit{Ships of the Royal Navy: The Complete Record of all Fighting Ships of the Royal Navy}. Revised edition. London: Chatham Publishing.
+\bibitem[Natural Earth(2026)]{naturalearth} Natural Earth (2026) Admin 0 countries, 1:10m. Public domain. \url{https://www.naturalearthdata.com/}
+\bibitem[Wikidata(2026)]{wikidata} Wikidata (2026) Wikidata, the free knowledge base. CC0. \url{https://www.wikidata.org/}
+\end{thebibliography}
+
+\appendix
+\section{Every town}
+{{TABLE_TOP}}
+\end{document}
